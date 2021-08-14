@@ -1,2 +1,2 @@
 # Soccer
- A simple football game to incorporate soccer techniques
+ A simple soccer game to incorporate soccer techniques
