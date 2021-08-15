@@ -44,6 +44,7 @@ class SceneA extends Phaser.Scene{
         t: 1,
         ease: 'Cubic',
         duration: 1000,
+        yoyo: false,
       }, this);
 
       this.tweens.add({
@@ -54,6 +55,7 @@ class SceneA extends Phaser.Scene{
         // depth: 10,
         ease: 'Cubic',
         duration: 1000,
+        yoyo: false
       }, this);
 
     };
