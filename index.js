@@ -4,6 +4,7 @@ class SceneA extends Phaser.Scene{
   }
   preload(){
     this.load.image('ball', 'soccer ball.png');
+    this.load.plugin('rexpathfollowerplugin', 'rexpathfollowerplugin.min.js');
   }
   create(){
     let canvasHeight = this.game.config.height;
@@ -19,10 +20,47 @@ class SceneA extends Phaser.Scene{
     
     this.goalPost = this.add.graphics();
     
+    this.goalPost.beginPath();
     this.goalPost.lineStyle(5, '0xffffff');
-    this.goalPost.strokePoints([{x: canvasWidth/2.5, y: 250}, {x:canvasWidth/2.5, y:100}, {x: canvasWidth/1.5, y: 100}, {x: canvasWidth/1.5, y: 250}]);
+    this.goalPost.strokePoints([{x: canvasWidth/2.2, y: 200}, {x:canvasWidth/2.2, y:100}, {x: canvasWidth/1.65, y: 100}, {x: canvasWidth/1.65, y: 200}]).setAlpha(0.5);
 
     this.kicked = false;
+
+    this.cursors = this.input.keyboard.createCursorKeys();
+
+    this.cursors.up.onDown = ()=>{
+      this.ballPath = this.add.path();
+      this.ballPath.moveTo( canvasWidth/1.8, canvasHeight-70);
+      this.ballPath.lineTo( canvasWidth/1.85, 180);
+
+      this.ball.pathFollower = this.plugins.get('rexpathfollowerplugin').add(this.ball,{
+        path: this.ballPath,
+        t: 0,
+        rotateToPath: true,
+      });
+
+      this.ballLinearTween = this.tweens.add({
+        targets: this.ball.pathFollower,
+        t: 1,
+        ease: 'Cubic',
+        duration: 1000,
+      }, this);
+
+      this.tweens.add({
+        targets: this.ball,
+        alpha: 0.5,
+        scale: 0.5,
+        rotation: 1000,
+        // depth: 10,
+        ease: 'Cubic',
+        duration: 1000,
+      }, this);
+
+    };
+
+    // this.ball.on('pointerdown', () => {
+    //   console.log('hi');
+    // });
     
   }
 };
