@@ -13,7 +13,7 @@ export default class MoveBall {
       targets: this.scene.ball.pathFollower,
       t: 1,
       ease: 'Cubic',
-      duration: 1000,
+      duration: 2000,
       yoyo: false,
     }, this);
 
@@ -21,7 +21,7 @@ export default class MoveBall {
       targets: this.scene.ball,
       alpha: 0.5,
       scale: 0.5,
-      rotation: 1000,
+      rotation: 2000,
       ease: 'Cubic',
       duration: 1000,
       yoyo: false
