@@ -2,7 +2,7 @@
  A simple soccer game to incorporate soccer techniques
 
 # Handling
- target the ball so that it hits the earth.
+ Aim the ball so it hits the earth.
  the ball curves as it moves so try to put that in mind.
  A little practice will help understand the concept
 
