@@ -5,9 +5,9 @@ export default class Preloader extends Phaser.Scene{
   
   preload(){
     this.load.setPath('assets/');
-    this.load.image('ball', 'soccer ball.png');
-    this.load.image('planet')
-    this.load.setPath('js/')
+    this.load.image('ball', 'soccer.png');
+    this.load.image('planet', 'earth.png');
+    this.load.setPath('js/');
     this.load.plugin('rexpathfollowerplugin', 'rexpathfollowerplugin.min.js');
 
   }
