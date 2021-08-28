@@ -4,7 +4,6 @@ export default class Preloader extends Phaser.Scene{
   }
   
   preload(){
-    this.load.setPath('assets/');
     this.load.image('ball', 'soccer.png');
     this.load.image('planet', 'earth.png');
     this.load.setPath('js/');
